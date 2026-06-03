@@ -254,6 +254,49 @@
     .menu-open {
       overflow: hidden;
     }
+    .hamburger-lines {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 16px;
+}
+
+.hamburger-lines span {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: #e6dfc8;
+  border-radius: 999px;
+  opacity: 1;
+  transform-origin: center;
+  transition: transform 220ms ease, opacity 220ms ease;
+}
+
+.hamburger-lines span:nth-child(1) {
+  top: 0;
+}
+
+.hamburger-lines span:nth-child(2) {
+  top: 7px;
+}
+
+.hamburger-lines span:nth-child(3) {
+  top: 14px;
+}
+
+.hamburger-button.is-open .hamburger-lines span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-button.is-open .hamburger-lines span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-button.is-open .hamburger-lines span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
   </style>
 </head>
 
@@ -287,83 +330,83 @@
   <main class="relative min-h-screen overflow-hidden bg-deepPine">
 
     <!-- HEADER -->
-    <header class="fixed left-0 right-0 top-0 z-[80] border-b border-bone/10 bg-deepPine/55 px-6 py-4 backdrop-blur-md md:px-10">
-      <nav class="mx-auto flex max-w-7xl items-center justify-between">
-        <a href="#top" class="text-xs uppercase tracking-widestPlus text-bone/75 transition hover:text-bone">
-          Harris Timber Co.
-        </a>
+<header class="fixed left-0 right-0 top-0 z-[120] border-b border-bone/10 bg-deepPine/55 px-6 py-4 backdrop-blur-md md:px-10">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between">
+    <a href="#top" class="text-xs uppercase tracking-widestPlus text-bone/75 transition hover:text-bone">
+      Harris Timber Co.
+    </a>
 
-        <!-- Desktop Menu -->
-        <div class="hidden items-center gap-8 md:flex">
-          <a href="#world" class="text-xs uppercase tracking-[.22em] text-bone/60 transition hover:text-bone">
-            World
-          </a>
+    <!-- Desktop Menu -->
+    <div class="hidden items-center gap-8 md:flex">
+      <a href="#world" class="text-xs uppercase tracking-[.22em] text-bone/60 transition hover:text-bone">
+        World
+      </a>
 
-          <a href="#hook" class="text-xs uppercase tracking-[.22em] text-bone/60 transition hover:text-bone">
-            The Hook
-          </a>
+      <a href="#hook" class="text-xs uppercase tracking-[.22em] text-bone/60 transition hover:text-bone">
+        The Hook
+      </a>
 
-          <a
-            href="#proof"
-            data-proof-nav
-            class="text-xs uppercase tracking-[.22em] text-bone/60 transition hover:text-bone"
-          >
-            Proof
-          </a>
+      <a
+        href="#proof"
+        data-proof-nav
+        class="text-xs uppercase tracking-[.22em] text-bone/60 transition hover:text-bone"
+      >
+        Proof
+      </a>
 
-          <a
-            href="#inquiries"
-            class="rounded-full border border-bone/25 px-5 py-2 text-xs uppercase tracking-[.22em] text-bone/75 transition hover:border-bone/60 hover:bg-bone/10 hover:text-bone"
-          >
-            Inquiries
-          </a>
-        </div>
-
-        <!-- Mobile Hamburger -->
-        <button
-          id="mobileMenuButton"
-          type="button"
-          class="flex h-10 w-10 items-center justify-center rounded-full border border-bone/20 bg-deepPine/40 text-bone md:hidden"
-          aria-label="Open menu"
-          aria-expanded="false"
-          aria-controls="mobileMenu"
-        >
-          <span class="relative block h-4 w-5">
-            <span id="hamburgerLine1" class="absolute left-0 top-0 h-px w-5 bg-bone transition"></span>
-            <span id="hamburgerLine2" class="absolute left-0 top-2 h-px w-5 bg-bone transition"></span>
-            <span id="hamburgerLine3" class="absolute left-0 top-4 h-px w-5 bg-bone transition"></span>
-          </span>
-        </button>
-      </nav>
-    </header>
-
-    <!-- Mobile Menu -->
-    <div
-      id="mobileMenu"
-      class="fixed inset-0 z-[70] hidden bg-deepPine/95 px-6 pt-28 backdrop-blur-xl md:hidden"
-    >
-      <div class="mx-auto flex max-w-md flex-col gap-6">
-        <a href="#world" data-mobile-link class="border-b border-bone/10 pb-5 font-display text-4xl text-bone">
-          World
-        </a>
-
-        <a href="#hook" data-mobile-link class="border-b border-bone/10 pb-5 font-display text-4xl text-bone">
-          The Hook
-        </a>
-
-        <a href="#proof" data-mobile-link data-proof-nav class="border-b border-bone/10 pb-5 font-display text-4xl text-bone">
-          Proof
-        </a>
-
-        <a href="#inquiries" data-mobile-link class="border-b border-bone/10 pb-5 font-display text-4xl text-bone">
-          Inquiries
-        </a>
-
-        <p class="pt-6 text-xs uppercase tracking-widestPlus text-bone/35">
-          The pines remember everything.
-        </p>
-      </div>
+      <a
+        href="#inquiries"
+        class="rounded-full border border-bone/25 px-5 py-2 text-xs uppercase tracking-[.22em] text-bone/75 transition hover:border-bone/60 hover:bg-bone/10 hover:text-bone"
+      >
+        Inquiries
+      </a>
     </div>
+
+    <!-- Mobile Hamburger -->
+<button
+  id="mobileMenuButton"
+  type="button"
+  class="hamburger-button relative z-[140] flex h-10 w-10 items-center justify-center rounded-full border border-bone/20 bg-deepPine/70 text-bone backdrop-blur md:hidden"
+  aria-label="Open menu"
+  aria-expanded="false"
+  aria-controls="mobileMenu"
+>
+  <span class="hamburger-lines" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+</button>
+  </nav>
+</header>
+
+<!-- Mobile Menu -->
+<div
+  id="mobileMenu"
+  class="fixed inset-0 z-[110] hidden bg-deepPine/95 px-6 pt-28 backdrop-blur-xl md:hidden"
+>
+  <div class="mx-auto flex max-w-md flex-col gap-6">
+    <a href="#world" data-mobile-link class="border-b border-bone/10 pb-5 font-display text-4xl text-bone">
+      World
+    </a>
+
+    <a href="#hook" data-mobile-link class="border-b border-bone/10 pb-5 font-display text-4xl text-bone">
+      The Hook
+    </a>
+
+    <a href="#proof" data-mobile-link data-proof-nav class="border-b border-bone/10 pb-5 font-display text-4xl text-bone">
+      Proof
+    </a>
+
+    <a href="#inquiries" data-mobile-link class="border-b border-bone/10 pb-5 font-display text-4xl text-bone">
+      Inquiries
+    </a>
+
+    <p class="pt-6 text-xs uppercase tracking-widestPlus text-bone/35">
+      The pines remember everything.
+    </p>
+  </div>
+</div>
 
     <!-- HERO -->
     <section id="top" class="relative min-h-screen vignette flex items-center justify-center px-6 pt-20">
@@ -377,9 +420,9 @@
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(201,196,168,.04),transparent_52%)]"></div>
 
       <div class="relative z-10 mx-auto max-w-5xl text-center fade-up">
-        <p class="mb-6 text-xs uppercase tracking-widestPlus text-bone/65">
-          A Southern Gothic crime dynasty
-        </p>
+        <p class="mb-7 text-[0.8rem] font-semibold uppercase tracking-[.18em] text-bone/80 md:text-[0.80rem]">
+  Based on actual events
+</p>
 
         <h1
           class="mx-auto flex max-w-[820px] flex-col items-center font-display font-medium uppercase leading-[.82] text-bone drop-shadow-2xl"
@@ -861,51 +904,63 @@
     handleToTopVisibility();
   }
 
-  function openMobileMenu() {
-    if (!mobileMenu || !mobileMenuButton) return;
+  function setHamburgerOpen(isOpen) {
+  if (!mobileMenuButton) return;
 
-    isMobileMenuOpen = true;
-    mobileMenu.classList.remove('hidden');
+  if (isOpen) {
+    mobileMenuButton.classList.add('is-open');
     mobileMenuButton.setAttribute('aria-expanded', 'true');
-    document.body.classList.add('menu-open');
-    document.body.style.overflow = 'hidden';
-
-    if (toTopButton) {
-      toTopButton.classList.add('hidden');
-      toTopButton.classList.remove('flex');
-    }
-
-    hamburgerLine1.style.transform = 'translateY(8px) rotate(45deg)';
-    hamburgerLine2.style.opacity = '0';
-    hamburgerLine3.style.transform = 'translateY(-8px) rotate(-45deg)';
-  }
-
-  function closeMobileMenu() {
-    if (!mobileMenu || !mobileMenuButton) return;
-
-    isMobileMenuOpen = false;
-    mobileMenu.classList.add('hidden');
+    mobileMenuButton.setAttribute('aria-label', 'Close menu');
+  } else {
+    mobileMenuButton.classList.remove('is-open');
     mobileMenuButton.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove('menu-open');
+    mobileMenuButton.setAttribute('aria-label', 'Open menu');
+  }
+}
 
-    hamburgerLine1.style.transform = '';
-    hamburgerLine2.style.opacity = '';
-    hamburgerLine3.style.transform = '';
+function openMobileMenu() {
+  if (!mobileMenu || !mobileMenuButton) return;
 
-    if (trailerModal.classList.contains('hidden')) {
-      document.body.style.overflow = '';
-    }
+  isMobileMenuOpen = true;
 
-    handleToTopVisibility();
+  mobileMenu.classList.remove('hidden');
+  mobileMenu.classList.add('block');
+
+  setHamburgerOpen(true);
+
+  document.body.classList.add('menu-open');
+  document.body.style.overflow = 'hidden';
+
+  if (toTopButton) {
+    toTopButton.classList.add('hidden');
+    toTopButton.classList.remove('flex');
   }
 
-  function toggleMobileMenu() {
-    if (isMobileMenuOpen) {
-      closeMobileMenu();
-    } else {
-      openMobileMenu();
-    }
+  handleToTopVisibility();
+}
+
+function closeMobileMenu() {
+  if (!mobileMenu || !mobileMenuButton) return;
+
+  isMobileMenuOpen = false;
+
+  mobileMenu.classList.add('hidden');
+  mobileMenu.classList.remove('block');
+
+  setHamburgerOpen(false);
+
+  document.body.classList.remove('menu-open');
+
+  if (trailerModal.classList.contains('hidden')) {
+    document.body.style.overflow = '';
   }
+
+  handleToTopVisibility();
+}
+
+function toggleMobileMenu() {
+  isMobileMenuOpen ? closeMobileMenu() : openMobileMenu();
+}
 
   if (mobileMenuButton) {
     mobileMenuButton.addEventListener('click', toggleMobileMenu);
