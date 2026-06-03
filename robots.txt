@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://beneaththepinestv.com/sitemap.xml
+Sitemap: https://beneaththepinestv.com/sitemap-main.xml
