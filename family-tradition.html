@@ -33,9 +33,9 @@
     content="A proof-of-concept short from the world of What&rsquo;s Buried Beneath the Pines."
   />
   <meta property="og:url" content="https://beneaththepinestv.com/family-tradition.html" />
-  <meta property="og:image" content="https://beneaththepinestv.com/og-image.png" />
-  <meta property="og:image:secure_url" content="https://beneaththepinestv.com/og-image.png" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image" content="https://beneaththepinestv.com/og-image.jpg" />
+  <meta property="og:image:secure_url" content="https://beneaththepinestv.com/og-image.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta
@@ -51,16 +51,10 @@
     name="twitter:description"
     content="A proof-of-concept short from the world of What&rsquo;s Buried Beneath the Pines."
   />
-  <meta name="twitter:image" content="https://beneaththepinestv.com/og-image.png" />
+  <meta name="twitter:image" content="https://beneaththepinestv.com/og-image.jpg" />
   <meta
     name="twitter:image:alt"
     content="Dark pine forest key art for Family Tradition."
-  />
-
-  <!-- Additional Discovery -->
-  <meta
-    name="keywords"
-    content="Family Tradition short film, What's Buried Beneath the Pines, proof of concept short, Southern Gothic crime thriller, Bad Bella Films, Sean Carney, God's Gonna Cut You Down, Southern crime drama"
   />
 
   <!-- Performance: DNS / Font Connections -->
@@ -70,7 +64,7 @@
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
   <!-- Hero Image Preload -->
-  <link rel="preload" as="image" href="/assets/images/family-tradition-poster.png" />
+  <link rel="preload" as="image" href="/assets/images/family-tradition-poster.jpg" />
 
   <!-- Fonts -->
   <link
@@ -111,9 +105,6 @@
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- HLS Video Support -->
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-
   <!-- Structured Data -->
   <script type="application/ld+json">
     {
@@ -151,7 +142,7 @@
           "publisher": {
             "@id": "https://beneaththepinestv.com/#organization"
           },
-          "image": "https://beneaththepinestv.com/og-image.png",
+          "image": "https://beneaththepinestv.com/og-image.jpg",
           "inLanguage": "en-US"
         },
         {
@@ -188,448 +179,8 @@
     }
   </script>
 
-  <style>
-    body {
-      background: #020706;
-      color: #e6dfc8;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .font-body {
-      font-family: 'Inter', sans-serif !important;
-    }
-
-    .font-display {
-      font-family: 'Cormorant Garamond', serif !important;
-    }
-
-    .grain::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 50;
-      opacity: .11;
-      background-image:
-        radial-gradient(circle at 20% 30%, rgba(255,255,255,.08) 0 1px, transparent 1px),
-        radial-gradient(circle at 70% 80%, rgba(255,255,255,.05) 0 1px, transparent 1px);
-      background-size: 3px 3px, 5px 5px;
-      mix-blend-mode: overlay;
-    }
-
-    .vignette::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at center, transparent 0%, rgba(2,7,6,.18) 48%, rgba(2,7,6,.82) 100%),
-        linear-gradient(to bottom, rgba(2,7,6,.12), rgba(2,7,6,.62) 84%, #020706);
-    }
-
-    .fade-up {
-      animation: fadeUp 1.1s ease both;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .slow-float {
-      animation: slowFloat 8s ease-in-out infinite;
-    }
-
-    @keyframes slowFloat {
-      0%, 100% {
-        transform: translateY(0);
-        opacity: .70;
-      }
-
-      50% {
-        transform: translateY(-8px);
-        opacity: 1;
-      }
-    }
-
-    .menu-open {
-      overflow: hidden;
-    }
-
-    .hamburger-lines {
-      position: relative;
-      display: block;
-      width: 20px;
-      height: 16px;
-    }
-
-    .hamburger-lines span {
-      position: absolute;
-      left: 0;
-      display: block;
-      width: 20px;
-      height: 1px;
-      background: #e6dfc8;
-      border-radius: 999px;
-      opacity: 1;
-      transform-origin: center;
-      transition: transform 220ms ease, opacity 220ms ease;
-    }
-
-    .hamburger-lines span:nth-child(1) {
-      top: 0;
-    }
-
-    .hamburger-lines span:nth-child(2) {
-      top: 7px;
-    }
-
-    .hamburger-lines span:nth-child(3) {
-      top: 14px;
-    }
-
-    .hamburger-button.is-open .hamburger-lines span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-
-    .hamburger-button.is-open .hamburger-lines span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger-button.is-open .hamburger-lines span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-
-    .site-header-nav {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .site-header-brand {
-      position: relative;
-      z-index: 2;
-    }
-
-    .site-header-menu {
-      display: none;
-    }
-
-    @media (min-width: 1024px) {
-      .site-header-nav {
-        display: grid;
-        grid-template-columns: minmax(220px, .9fr) auto minmax(max-content, 1.1fr);
-        align-items: center;
-        gap: clamp(1rem, 1.6vw, 2rem);
-      }
-
-      .site-header-menu {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: clamp(.75rem, 1.15vw, 1.5rem);
-        min-width: max-content;
-      }
-    }
-
-    /* DESKTOP RESPONSIVE AUDIO PLAYER */
-    .family-header-audio-root {
-      display: none;
-    }
-
-    @media (min-width: 1024px) {
-      .family-header-audio-root {
-        display: flex;
-        justify-content: center;
-        min-width: 42px;
-      }
-    }
-
-    .family-header-player {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 36px;
-      gap: 10px;
-      pointer-events: auto;
-    }
-
-    .family-header-track {
-      display: none;
-      min-width: 0;
-      flex: 1;
-    }
-
-    .family-header-play-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      flex-shrink: 0;
-      border-radius: 999px;
-      border: 1px solid rgba(182, 139, 76, .55);
-      background: rgba(182, 139, 76, .09);
-      color: #e6dfc8;
-      font-size: 11px;
-      transition:
-        border-color 180ms ease,
-        background 180ms ease,
-        color 180ms ease,
-        transform 180ms ease;
-    }
-
-    .family-header-play-button:hover {
-      border-color: rgba(182, 139, 76, .95);
-      background: rgba(182, 139, 76, .16);
-      color: #e6dfc8;
-    }
-
-    .family-header-play-button:active {
-      transform: scale(.96);
-    }
-
-    .family-header-play-button:focus {
-      outline: none;
-      box-shadow: 0 0 0 2px rgba(182, 139, 76, .55);
-    }
-
-    .family-header-marquee {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      white-space: nowrap;
-      font-family: 'Inter', sans-serif;
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: .17em;
-      line-height: 1;
-      text-transform: uppercase;
-      color: rgba(230, 223, 200, .52);
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 13%, #000 87%, transparent 100%);
-      mask-image: linear-gradient(to right, transparent 0%, #000 13%, #000 87%, transparent 100%);
-    }
-
-    .family-header-marquee span {
-      display: inline-block;
-      min-width: max-content;
-      padding-left: 100%;
-      animation: familyHeaderMarquee 58s linear infinite;
-    }
-
-    .family-header-seek {
-      -webkit-appearance: none;
-      appearance: none;
-      display: none;
-      width: 100%;
-      height: 3px;
-      margin-top: 8px;
-      border-radius: 999px;
-      background: rgba(230, 223, 200, .13);
-      outline: none;
-      cursor: pointer;
-    }
-
-    .family-header-seek::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: #b68b4c;
-      border: 1px solid rgba(230, 223, 200, .55);
-      box-shadow: 0 0 12px rgba(182, 139, 76, .35);
-    }
-
-    .family-header-seek::-moz-range-thumb {
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: #b68b4c;
-      border: 1px solid rgba(230, 223, 200, .55);
-      box-shadow: 0 0 12px rgba(182, 139, 76, .35);
-    }
-
-    @media (min-width: 1024px) and (max-width: 1199px) {
-      .family-header-player {
-        width: 42px;
-      }
-
-      .family-header-track {
-        display: none;
-      }
-    }
-
-    @media (min-width: 1200px) {
-      .family-header-player {
-        justify-content: flex-start;
-        width: clamp(210px, 22vw, 300px);
-      }
-
-      .family-header-track {
-        display: block;
-      }
-    }
-
-    @media (min-width: 1400px) {
-      .family-header-player {
-        width: clamp(315px, 26vw, 420px);
-      }
-
-      .family-header-seek {
-        display: block;
-      }
-    }
-
-    /* MOBILE AUDIO PLAYER: BOTTOM LEFT */
-    .family-mobile-bottom-player {
-      position: fixed;
-      left: 1rem;
-      bottom: 1rem;
-      z-index: 92;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      max-width: calc(100vw - 6.75rem);
-      pointer-events: auto;
-    }
-
-    .family-mobile-bottom-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px;
-      height: 48px;
-      min-width: 48px;
-      min-height: 48px;
-      border-radius: 999px;
-      border: 1px solid rgba(230, 223, 200, .20);
-      background: rgba(2, 7, 6, .78);
-      color: #e6dfc8;
-      font-size: 13px;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, .35);
-      backdrop-filter: blur(10px);
-      transition:
-        border-color 180ms ease,
-        background 180ms ease,
-        color 180ms ease,
-        transform 180ms ease;
-    }
-
-    .family-mobile-bottom-button:hover {
-      border-color: rgba(182, 139, 76, .95);
-      background: rgba(182, 139, 76, .16);
-    }
-
-    .family-mobile-bottom-button:active {
-      transform: scale(.96);
-    }
-
-    .family-mobile-bottom-button:focus {
-      outline: none;
-      box-shadow: 0 0 0 2px rgba(182, 139, 76, .55);
-    }
-
-    .family-mobile-bottom-marquee {
-      width: 0;
-      max-width: 0;
-      opacity: 0;
-      overflow: hidden;
-      white-space: nowrap;
-      border: 1px solid rgba(230, 223, 200, .12);
-      border-radius: 999px;
-      background: rgba(2, 7, 6, .76);
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: .14em;
-      line-height: 1;
-      text-transform: uppercase;
-      color: rgba(230, 223, 200, .58);
-      backdrop-filter: blur(10px);
-      transition:
-        width 220ms ease,
-        max-width 220ms ease,
-        opacity 220ms ease,
-        padding 220ms ease;
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 16%, #000 84%, transparent 100%);
-      mask-image: linear-gradient(to right, transparent 0%, #000 16%, #000 84%, transparent 100%);
-    }
-
-    .family-mobile-bottom-marquee span {
-      display: inline-block;
-      min-width: max-content;
-      padding-left: 100%;
-      animation: familyMobileMarquee 48s linear infinite;
-    }
-
-    body.menu-open .family-mobile-bottom-player {
-      display: none;
-    }
-
-    #familyMobileAudioPlayer.is-playing .family-mobile-bottom-button {
-      border-color: rgba(182, 139, 76, .70);
-      background: rgba(182, 139, 76, .12);
-    }
-
-    #familyMobileAudioPlayer.is-playing .family-mobile-bottom-marquee {
-      width: min(48vw, 190px);
-      max-width: min(48vw, 190px);
-      opacity: 1;
-      padding: 12px 14px;
-    }
-
-    @media (max-width: 380px) {
-      .family-mobile-bottom-player {
-        left: .85rem;
-        bottom: .85rem;
-        max-width: calc(100vw - 6.25rem);
-      }
-
-      .family-mobile-bottom-button {
-        width: 46px;
-        height: 46px;
-        min-width: 46px;
-        min-height: 46px;
-      }
-
-      #familyMobileAudioPlayer.is-playing .family-mobile-bottom-marquee {
-        width: 150px;
-        max-width: 150px;
-      }
-    }
-
-    @keyframes familyHeaderMarquee {
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-
-    @keyframes familyMobileMarquee {
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-  </style>
+  <!-- Shared stylesheet (also used by index.html) -->
+  <link rel="stylesheet" href="/assets/css/site.css" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TNJHHH9DLY"></script>
@@ -711,7 +262,7 @@
           Series
         </a>
 
-        <a href="#trailer" data-trailer-nav class="text-xs uppercase tracking-[.22em] text-bone/60 transition hover:text-bone">
+        <a href="#trailer" data-trailer-nav class="is-feature-hidden text-xs uppercase tracking-[.22em] text-bone/60 transition hover:text-bone">
   Trailer
 </a>
 
@@ -755,16 +306,12 @@
         Series
       </a>
 
-      <a href="#trailer" data-mobile-link data-trailer-nav class="border-b border-bone/10 pb-5 font-display text-4xl text-bone">
+      <a href="#trailer" data-mobile-link data-trailer-nav class="is-feature-hidden border-b border-bone/10 pb-5 font-display text-4xl text-bone">
   Trailer
 </a>
 
       <a href="#short" data-mobile-link class="border-b border-bone/10 pb-5 font-display text-4xl text-bone">
         The Short
-      </a>
-
-      <a href="#song" data-mobile-link class="border-b border-bone/10 pb-5 font-display text-4xl text-bone">
-        Song
       </a>
 
       <a href="#access" data-mobile-link class="border-b border-bone/10 pb-5 font-display text-4xl text-bone">
@@ -785,14 +332,14 @@
   <!-- Desktop cinematic background -->
   <div
     class="absolute inset-0 hidden bg-cover bg-center md:block"
-    style="background-image: url('/assets/images/family-tradition-poster.png'); background-position: center 18%;"
+    style="background-image: url('/assets/images/family-tradition-poster.jpg'); background-position: center 18%;"
     aria-hidden="true"
   ></div>
 
   <!-- Mobile art-directed background -->
   <div
     class="absolute inset-0 bg-cover md:hidden"
-    style="background-image: url('/assets/images/family-tradition-poster.png'); background-position: 47% top;"
+    style="background-image: url('/assets/images/family-tradition-poster.jpg'); background-position: 47% top;"
     aria-hidden="true"
   ></div>
 
@@ -825,7 +372,7 @@
     type="button"
     data-trailer-trigger
     onclick="openTrailerModal()"
-    class="inline-flex h-12 w-full items-center justify-center rounded-full border border-sap/70 bg-black/45 px-6 text-center text-[10px] uppercase tracking-[.22em] text-bone shadow-2xl backdrop-blur transition hover:border-sap hover:bg-sap/20 focus:outline-none focus:ring-2 focus:ring-sap/60 focus:ring-offset-2 focus:ring-offset-deepPine md:h-14 md:w-[300px] md:text-xs lg:w-[320px]"
+    class="is-feature-hidden inline-flex h-12 w-full items-center justify-center rounded-full border border-sap/70 bg-black/45 px-6 text-center text-[10px] uppercase tracking-[.22em] text-bone shadow-2xl backdrop-blur transition hover:border-sap hover:bg-sap/20 focus:outline-none focus:ring-2 focus:ring-sap/60 focus:ring-offset-2 focus:ring-offset-deepPine md:h-14 md:w-[300px] md:text-xs lg:w-[320px]"
   >
     Watch Trailer
   </button>
@@ -844,7 +391,7 @@
 </section>
 
   <!-- TRAILER SECTION -->
-  <section id="trailer" data-trailer-section class="relative overflow-hidden bg-[#030806] px-6 py-24 md:px-10 md:py-32">
+  <section id="trailer" data-trailer-section class="is-feature-hidden relative overflow-hidden bg-[#030806] px-6 py-24 md:px-10 md:py-32">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(182,139,76,.12),transparent_42%)]"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-black/65 via-transparent to-deepPine"></div>
 
@@ -890,7 +437,7 @@
       >
         <div
           class="absolute inset-0 bg-cover bg-center opacity-78 transition duration-700 group-hover:scale-105 group-hover:opacity-90"
-          style="background-image: url('/assets/images/family-tradition-poster.png');"
+          style="background-image: url('/assets/images/family-tradition-poster.jpg');"
           aria-hidden="true"
         ></div>
 
@@ -987,7 +534,7 @@
   <section class="relative min-h-[72vh] overflow-hidden bg-black px-6 py-24 md:px-10">
     <div
       class="absolute inset-0 bg-cover bg-center opacity-70"
-      style="background-image: url('/assets/images/family-tradition-poster.png');"
+      style="background-image: url('/assets/images/family-tradition-poster.jpg');"
       aria-hidden="true"
     ></div>
 
@@ -1148,7 +695,7 @@
             controls
             playsinline
             preload="metadata"
-            poster="/assets/images/family-tradition-poster.png"
+            poster="/assets/images/family-tradition-poster.jpg"
           >
             Your browser does not support the video tag.
           </video>
@@ -1161,338 +708,27 @@
     </div>
   </div>
 
+  <!-- Shared site behavior (also used by index.html) -->
+  <script src="/assets/js/site.js"></script>
+
+  <!-- Page-specific: reveal the Trailer nav/section/button only when enabled -->
   <script>
-  const trailerModal = document.getElementById('trailerModal');
-  const trailerVideo = document.getElementById('trailerVideo');
-  const trailerSection = document.querySelector('[data-trailer-section]');
-  const trailerNavItems = document.querySelectorAll('[data-trailer-nav]');
-  const trailerTriggers = document.querySelectorAll('[data-trailer-trigger]');
-  const trailerModalElement = document.querySelector('[data-trailer-modal]');
+    function applyFeatureToggles() {
+      if (typeof SHOW_TRAILER === 'undefined' || !SHOW_TRAILER) return;
 
-  const mobileMenuButton = document.getElementById('mobileMenuButton');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileLinks = document.querySelectorAll('[data-mobile-link]');
+      const trailerSection = document.querySelector('[data-trailer-section]');
+      if (trailerSection) trailerSection.classList.remove('is-feature-hidden');
 
-  const toTopButton = document.getElementById('toTopButton');
-
-  const familyAudioPlayer = document.getElementById('familyAudioPlayer');
-  const familyMobileAudioPlayer = document.getElementById('familyMobileAudioPlayer');
-  const familyAudio = document.getElementById('familyAudio');
-
-  const familyAudioPlayButtons = [
-    document.getElementById('familyAudioPlayDesktop'),
-    document.getElementById('familyAudioPlayMobile')
-  ].filter(Boolean);
-
-  const familyAudioPlayIcons = [
-    document.getElementById('familyAudioPlayIconDesktop'),
-    document.getElementById('familyAudioPlayIconMobile')
-  ].filter(Boolean);
-
-  const familyAudioSeekInputs = [
-    document.getElementById('familyAudioSeekDesktop')
-  ].filter(Boolean);
-
-  let isMobileMenuOpen = false;
-  let hlsInstance = null;
-
-  function applyFeatureToggles() {
-    const trailerIsVisible = typeof SHOW_TRAILER !== 'undefined' && SHOW_TRAILER;
-
-    if (!trailerIsVisible) {
-      if (trailerSection) {
-        trailerSection.remove();
-      }
-
-      trailerNavItems.forEach((item) => {
-        item.remove();
+      document.querySelectorAll('[data-trailer-nav]').forEach((item) => {
+        item.classList.remove('is-feature-hidden');
       });
 
-      trailerTriggers.forEach((trigger) => {
-        trigger.remove();
-      });
-
-      if (trailerModalElement) {
-        trailerModalElement.remove();
-      }
-    }
-  }
-
-  function syncFamilyAudioState() {
-    if (!familyAudio) return;
-
-    const isPlaying = !familyAudio.paused;
-
-    if (familyAudioPlayer) {
-      familyAudioPlayer.classList.toggle('is-playing', isPlaying);
-    }
-
-    if (familyMobileAudioPlayer) {
-      familyMobileAudioPlayer.classList.toggle('is-playing', isPlaying);
-    }
-  }
-
-  function updateFamilyAudioUI() {
-    if (!familyAudio) return;
-
-    const isPlaying = !familyAudio.paused;
-
-    familyAudioPlayIcons.forEach((icon) => {
-      icon.textContent = isPlaying ? '\u275A\u275A' : '\u25B6';
-      icon.classList.toggle('ml-0.5', !isPlaying);
-    });
-
-    familyAudioPlayButtons.forEach((button) => {
-      button.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
-      button.setAttribute(
-        'aria-label',
-        isPlaying ? 'Pause Family Tradition song' : 'Play Family Tradition song'
-      );
-    });
-
-    if (familyAudio.duration) {
-      const progress = (familyAudio.currentTime / familyAudio.duration) * 100;
-
-      familyAudioSeekInputs.forEach((input) => {
-        if (document.activeElement !== input) {
-          input.value = progress;
-        }
-      });
-    } else {
-      familyAudioSeekInputs.forEach((input) => {
-        input.value = 0;
+      document.querySelectorAll('[data-trailer-trigger]').forEach((trigger) => {
+        trigger.classList.remove('is-feature-hidden');
       });
     }
 
-    syncFamilyAudioState();
-  }
-
-  function toggleFamilyAudioPlayback() {
-    if (!familyAudio) return;
-
-    if (familyAudio.paused) {
-      familyAudio.play().catch(function() {
-        alert('Audio could not be played. Please tap play again.');
-      });
-    } else {
-      familyAudio.pause();
-    }
-
-    updateFamilyAudioUI();
-  }
-
-  function seekFamilyAudio(event) {
-    if (!familyAudio || !familyAudio.duration) return;
-
-    const targetProgress = Number(event.target.value);
-    familyAudio.currentTime = (targetProgress / 100) * familyAudio.duration;
-    updateFamilyAudioUI();
-  }
-
-  function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  }
-
-  function handleToTopVisibility() {
-    if (!toTopButton) return;
-
-    const modalIsHidden = !trailerModal || trailerModal.classList.contains('hidden');
-
-    if (window.scrollY > 700 && !isMobileMenuOpen && modalIsHidden) {
-      toTopButton.classList.remove('hidden');
-      toTopButton.classList.add('flex');
-    } else {
-      toTopButton.classList.add('hidden');
-      toTopButton.classList.remove('flex');
-    }
-  }
-
-  function loadTrailer() {
-    if (
-      typeof SHOW_TRAILER === 'undefined' ||
-      !SHOW_TRAILER ||
-      typeof TRAILER_HLS_URL === 'undefined' ||
-      !TRAILER_HLS_URL ||
-      TRAILER_HLS_URL === 'YOUR_CLOUDFLARE_HLS_URL_HERE'
-    ) {
-      alert('Trailer coming soon.');
-      return false;
-    }
-
-    if (!trailerVideo) {
-      alert('Trailer coming soon.');
-      return false;
-    }
-
-    if (hlsInstance) {
-      hlsInstance.destroy();
-      hlsInstance = null;
-    }
-
-    if (trailerVideo.canPlayType('application/vnd.apple.mpegurl')) {
-      trailerVideo.src = TRAILER_HLS_URL;
-    } else if (window.Hls && Hls.isSupported()) {
-      hlsInstance = new Hls();
-      hlsInstance.loadSource(TRAILER_HLS_URL);
-      hlsInstance.attachMedia(trailerVideo);
-    } else {
-      alert('This browser does not support the trailer playback format.');
-      return false;
-    }
-
-    return true;
-  }
-
-  function openTrailerModal() {
-    closeMobileMenu();
-
-    if (familyAudio && !familyAudio.paused) {
-      familyAudio.pause();
-      updateFamilyAudioUI();
-    }
-
-    const loaded = loadTrailer();
-    if (!loaded || !trailerModal) return;
-
-    trailerModal.classList.remove('hidden');
-    trailerModal.classList.add('flex');
-
-    document.body.style.overflow = 'hidden';
-    handleToTopVisibility();
-  }
-
-  function closeTrailerModal() {
-    if (!trailerModal) return;
-
-    trailerModal.classList.add('hidden');
-    trailerModal.classList.remove('flex');
-
-    if (trailerVideo) {
-      trailerVideo.pause();
-      trailerVideo.removeAttribute('src');
-      trailerVideo.load();
-    }
-
-    if (hlsInstance) {
-      hlsInstance.destroy();
-      hlsInstance = null;
-    }
-
-    if (!isMobileMenuOpen) {
-      document.body.style.overflow = '';
-    }
-
-    handleToTopVisibility();
-  }
-
-  function setHamburgerOpen(isOpen) {
-    if (!mobileMenuButton) return;
-
-    if (isOpen) {
-      mobileMenuButton.classList.add('is-open');
-      mobileMenuButton.setAttribute('aria-expanded', 'true');
-      mobileMenuButton.setAttribute('aria-label', 'Close menu');
-    } else {
-      mobileMenuButton.classList.remove('is-open');
-      mobileMenuButton.setAttribute('aria-expanded', 'false');
-      mobileMenuButton.setAttribute('aria-label', 'Open menu');
-    }
-  }
-
-  function openMobileMenu() {
-    if (!mobileMenu || !mobileMenuButton) return;
-
-    isMobileMenuOpen = true;
-
-    mobileMenu.classList.remove('hidden');
-    mobileMenu.classList.add('block');
-
-    setHamburgerOpen(true);
-
-    document.body.classList.add('menu-open');
-    document.body.style.overflow = 'hidden';
-
-    if (toTopButton) {
-      toTopButton.classList.add('hidden');
-      toTopButton.classList.remove('flex');
-    }
-
-    handleToTopVisibility();
-  }
-
-  function closeMobileMenu() {
-    if (!mobileMenu || !mobileMenuButton) return;
-
-    isMobileMenuOpen = false;
-
-    mobileMenu.classList.add('hidden');
-    mobileMenu.classList.remove('block');
-
-    setHamburgerOpen(false);
-
-    document.body.classList.remove('menu-open');
-
-    const modalIsHidden = !trailerModal || trailerModal.classList.contains('hidden');
-
-    if (modalIsHidden) {
-      document.body.style.overflow = '';
-    }
-
-    handleToTopVisibility();
-  }
-
-  function toggleMobileMenu() {
-    isMobileMenuOpen ? closeMobileMenu() : openMobileMenu();
-  }
-
-  familyAudioPlayButtons.forEach((button) => {
-    button.addEventListener('click', toggleFamilyAudioPlayback);
-  });
-
-  familyAudioSeekInputs.forEach((input) => {
-    input.addEventListener('input', seekFamilyAudio);
-  });
-
-  if (familyAudio) {
-    familyAudio.addEventListener('play', updateFamilyAudioUI);
-    familyAudio.addEventListener('pause', updateFamilyAudioUI);
-    familyAudio.addEventListener('ended', updateFamilyAudioUI);
-    familyAudio.addEventListener('timeupdate', updateFamilyAudioUI);
-    familyAudio.addEventListener('loadedmetadata', updateFamilyAudioUI);
-  }
-
-  if (mobileMenuButton) {
-    mobileMenuButton.addEventListener('click', toggleMobileMenu);
-  }
-
-  mobileLinks.forEach((link) => {
-    link.addEventListener('click', closeMobileMenu);
-  });
-
-  if (trailerModal) {
-    trailerModal.addEventListener('click', function(event) {
-      if (event.target === trailerModal) {
-        closeTrailerModal();
-      }
-    });
-  }
-
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-      closeTrailerModal();
-      closeMobileMenu();
-    }
-  });
-
-  window.addEventListener('scroll', handleToTopVisibility);
-
-  applyFeatureToggles();
-  updateFamilyAudioUI();
-  syncFamilyAudioState();
-  handleToTopVisibility();
-</script>
+    applyFeatureToggles();
+  </script>
 </body>
 </html>
