@@ -327,19 +327,19 @@
   <!-- HERO -->
 <section
   id="top"
-  class="relative min-h-[100svh] overflow-hidden bg-black"
+  class="relative min-h-[100svh] overflow-hidden bg-deepPine"
 >
-  <!-- Desktop cinematic background -->
-  <div
-    class="absolute inset-0 hidden bg-cover bg-center md:block"
-    style="background-image: url('/assets/images/family-tradition-poster.jpg'); background-position: center 18%;"
-    aria-hidden="true"
-  ></div>
-
-  <!-- Mobile art-directed background -->
+  <!-- Mobile: portrait full-bleed -->
   <div
     class="absolute inset-0 bg-cover md:hidden"
     style="background-image: url('/assets/images/family-tradition-poster.jpg'); background-position: 47% top;"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Desktop: portrait image anchored to right panel — shows man's full figure at every desktop width -->
+  <div
+    class="absolute inset-y-0 right-0 hidden w-[65%] bg-cover md:block"
+    style="background-image: url('/assets/images/family-tradition-poster.jpg'); background-position: 35% 20%;"
     aria-hidden="true"
   ></div>
 
@@ -347,45 +347,49 @@
   <div class="absolute inset-0 bg-gradient-to-b from-black/18 via-black/0 to-black/92 md:hidden"></div>
   <div class="absolute inset-0 bg-gradient-to-r from-black/18 via-transparent to-black/10 md:hidden"></div>
 
-  <!-- Desktop grading -->
-  <div class="absolute inset-0 hidden bg-gradient-to-b from-black/70 via-black/10 to-black/92 md:block"></div>
-  <div class="absolute inset-0 hidden bg-gradient-to-r from-black/82 via-black/32 to-black/18 md:block"></div>
+  <!-- Desktop grading: stays fully opaque past the panel boundary so no hard edge, then fades into the image -->
+  <div
+    class="absolute inset-0 hidden md:block"
+    style="background: linear-gradient(to right, #020706 0%, #020706 32%, rgba(2,7,6,0.88) 46%, rgba(2,7,6,0.32) 60%, transparent 74%);"
+    aria-hidden="true"
+  ></div>
+  <div class="absolute inset-0 hidden bg-gradient-to-b from-black/50 via-transparent to-black/25 md:block"></div>
 
-  <!-- Content -->
-  <div class="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl items-end px-6 pb-9 pt-24 md:px-10 md:pb-16 md:pt-28">
-    <div class="w-full max-w-[21.5rem] md:max-w-3xl">
+  <!-- Content: bottom on mobile, left-panel vertically centered on desktop -->
+  <div class="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl items-end px-6 pb-9 pt-24 md:items-center md:px-10 md:pb-16 md:pt-28">
+    <div class="w-full max-w-[21.5rem] md:max-w-[390px]">
       <p class="mb-4 text-[0.6rem] font-semibold uppercase tracking-[.28em] text-sap/95 drop-shadow-2xl md:text-xs md:tracking-[.32em]">
         Proof-of-concept short
       </p>
 
-      <h1 class="font-display text-[clamp(3.05rem,12.4vw,4.05rem)] font-medium uppercase leading-[.84] tracking-[.008em] text-bone drop-shadow-2xl md:text-[clamp(5.5rem,11vw,9.5rem)] md:leading-[.78] md:tracking-[.08em]">
+      <h1 class="font-display text-[clamp(3.05rem,12.4vw,4.05rem)] font-medium uppercase leading-[.84] tracking-[.008em] text-bone drop-shadow-2xl md:text-[clamp(4.5rem,7vw,7rem)] md:leading-[.82] md:tracking-[.06em]">
         <span class="block">Family</span>
         <span class="block">Tradition</span>
       </h1>
 
-      <p class="mt-6 max-w-[19rem] font-display text-[1.45rem] italic leading-tight text-bone drop-shadow-2xl md:mt-7 md:max-w-2xl md:text-5xl">
+      <p class="mt-6 max-w-[19rem] font-display text-[1.45rem] italic leading-tight text-bone drop-shadow-2xl md:mt-6 md:max-w-xs md:text-3xl">
         There are things worse than murder.
       </p>
 
-      <div class="mt-7 flex w-full max-w-[21.5rem] flex-col gap-3 md:mt-8 md:max-w-none md:flex-row md:gap-4">
+      <div class="mt-7 flex w-full max-w-[21.5rem] flex-col gap-3 md:mt-7 md:max-w-[300px]">
   <button
     type="button"
     data-trailer-trigger
     onclick="openTrailerModal()"
-    class="is-feature-hidden inline-flex h-12 w-full items-center justify-center rounded-full border border-sap/70 bg-black/45 px-6 text-center text-[10px] uppercase tracking-[.22em] text-bone shadow-2xl backdrop-blur transition hover:border-sap hover:bg-sap/20 focus:outline-none focus:ring-2 focus:ring-sap/60 focus:ring-offset-2 focus:ring-offset-deepPine md:h-14 md:w-[300px] md:text-xs lg:w-[320px]"
+    class="is-feature-hidden inline-flex h-12 w-full items-center justify-center rounded-full border border-sap/70 bg-black/45 px-6 text-center text-[10px] uppercase tracking-[.22em] text-bone shadow-2xl backdrop-blur transition hover:border-sap hover:bg-sap/20 focus:outline-none focus:ring-2 focus:ring-sap/60 focus:ring-offset-2 focus:ring-offset-deepPine md:h-14 md:text-xs"
   >
     Watch Trailer
   </button>
 
   <a
     href="#access"
-    class="inline-flex h-12 w-full items-center justify-center rounded-full border border-bone/50 bg-black/50 px-7 text-center text-[10px] uppercase tracking-[.22em] text-bone shadow-2xl backdrop-blur transition hover:border-bone/75 hover:bg-bone/10 hover:text-bone md:h-14 md:w-[300px] md:text-xs lg:w-[320px]"
+    class="inline-flex h-12 w-full items-center justify-center rounded-full border border-bone/50 bg-black/50 px-7 text-center text-[10px] uppercase tracking-[.22em] text-bone shadow-2xl backdrop-blur transition hover:border-bone/75 hover:bg-bone/10 hover:text-bone md:h-14 md:text-xs"
   >
     Request Full Short
   </a>
 </div>
 
-      
+
     </div>
   </div>
 </section>
