@@ -271,7 +271,7 @@
         </a>
 
         <a
-          href="#access"
+          href="#access" data-access-open
           class="rounded-full border border-bone/25 px-4 py-2 text-xs uppercase tracking-[.20em] text-bone/75 transition hover:border-bone/60 hover:bg-bone/10 hover:text-bone"
         >
           Request Access
@@ -314,7 +314,7 @@
         The Short
       </a>
 
-      <a href="#access" data-mobile-link class="border-b border-bone/10 pb-5 font-display text-4xl text-bone">
+      <a href="#access" data-access-open data-mobile-link class="border-b border-bone/10 pb-5 font-display text-4xl text-bone">
         Request Access
       </a>
 
@@ -382,7 +382,7 @@
   </button>
 
   <a
-    href="#access"
+    href="#access" data-access-open
     class="inline-flex h-12 w-full items-center justify-center rounded-full border border-bone/50 bg-black/50 px-7 text-center text-[10px] uppercase tracking-[.22em] text-bone shadow-2xl backdrop-blur transition hover:border-bone/75 hover:bg-bone/10 hover:text-bone md:h-14 md:text-xs"
   >
     Request Full Short
@@ -425,7 +425,7 @@
 </button>
 
           <a
-            href="#access"
+            href="#access" data-access-open
             class="inline-flex h-12 w-full items-center justify-center rounded-full border border-bone/25 bg-deepPine/45 px-6 text-center text-[10px] uppercase tracking-[.24em] text-bone/80 transition hover:border-bone/60 hover:bg-bone/10 hover:text-bone sm:w-[220px] sm:text-xs"
           >
             Request Access
@@ -577,12 +577,13 @@
       </p>
 
       <div class="mt-10">
-        <a
-          href="mailto:kris@badbellafilms.com?subject=Family%20Tradition%20%2F%20What%27s%20Buried%20Beneath%20the%20Pines%20Access%20Request"
+        <button
+          type="button"
+          data-access-open
           class="inline-flex h-12 items-center justify-center rounded-full border border-sap/60 bg-sap/10 px-8 text-xs uppercase tracking-[.24em] text-bone transition hover:bg-sap/20 hover:border-sap"
         >
-          Request Full Short Access
-        </a>
+          Request Full Film Access
+        </button>
       </div>
     </div>
   </section>
@@ -712,8 +713,115 @@
     </div>
   </div>
 
+  <!-- FULL FILM ACCESS REQUEST (see assets/js/access-request.js) -->
+  <div
+    data-access-modal
+    class="fixed inset-0 z-[150] hidden items-start justify-center overflow-y-auto bg-black/85 px-4 py-8 backdrop-blur-sm md:items-center md:py-12"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="accessTitle"
+  >
+    <div class="relative w-full max-w-lg rounded-3xl border border-bone/10 bg-deepPine p-7 shadow-glow md:p-10">
+      <div class="pointer-events-none absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_50%_0%,rgba(182,139,76,.12),transparent_55%)]"></div>
+
+      <button
+        type="button"
+        data-access-close
+        class="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full text-2xl leading-none text-bone/50 transition hover:bg-bone/10 hover:text-bone"
+        aria-label="Close"
+      >&times;</button>
+
+      <div data-access-form-view class="relative">
+        <p class="mb-4 text-[10px] uppercase tracking-widestPlus text-sap">Private Screener</p>
+        <h2 id="accessTitle" class="font-display text-4xl font-medium leading-none text-bone md:text-5xl">
+          Request Full Film Access
+        </h2>
+        <p class="mt-4 text-sm leading-6 text-bone/60">
+          Interested in watching <span class="italic">Family Tradition</span>? Request private access to the full short film below.
+        </p>
+
+        <form data-access-form class="mt-7 space-y-4 text-left" novalidate>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <label class="block">
+              <span class="mb-1.5 block text-[10px] uppercase tracking-[.22em] text-bone/55">Name <span class="text-sap">*</span></span>
+              <input name="name" type="text" required maxlength="120" autocomplete="name"
+                class="h-12 w-full rounded-xl border border-bone/15 bg-black/30 px-4 text-base text-bone outline-none transition placeholder:text-bone/25 focus:border-sap/70 focus:bg-black/40" />
+            </label>
+            <label class="block">
+              <span class="mb-1.5 block text-[10px] uppercase tracking-[.22em] text-bone/55">Email <span class="text-sap">*</span></span>
+              <input name="email" type="email" required maxlength="254" autocomplete="email"
+                class="h-12 w-full rounded-xl border border-bone/15 bg-black/30 px-4 text-base text-bone outline-none transition placeholder:text-bone/25 focus:border-sap/70 focus:bg-black/40" />
+            </label>
+            <label class="block">
+              <span class="mb-1.5 block text-[10px] uppercase tracking-[.22em] text-bone/55">Company / Organization</span>
+              <input name="company" type="text" maxlength="160" autocomplete="organization" placeholder="Optional"
+                class="h-12 w-full rounded-xl border border-bone/15 bg-black/30 px-4 text-base text-bone outline-none transition placeholder:text-bone/25 focus:border-sap/70 focus:bg-black/40" />
+            </label>
+            <label class="block">
+              <span class="mb-1.5 block text-[10px] uppercase tracking-[.22em] text-bone/55">Role / Title</span>
+              <input name="role" type="text" maxlength="160" autocomplete="organization-title" placeholder="Optional"
+                class="h-12 w-full rounded-xl border border-bone/15 bg-black/30 px-4 text-base text-bone outline-none transition placeholder:text-bone/25 focus:border-sap/70 focus:bg-black/40" />
+            </label>
+          </div>
+
+          <label class="block">
+            <span class="mb-1.5 block text-[10px] uppercase tracking-[.22em] text-bone/55">How did you hear about the film?</span>
+            <select name="heard_about"
+              class="h-12 w-full appearance-none rounded-xl border border-bone/15 bg-black/30 bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%228%22 viewBox=%220 0 12 8%22><path d=%22M1 1l5 5 5-5%22 fill=%22none%22 stroke=%22%23b68b4c%22 stroke-width=%221.5%22/></svg>')] bg-[length:12px_8px] bg-[right_1rem_center] bg-no-repeat px-4 pr-10 text-base text-bone outline-none transition focus:border-sap/70">
+              <option value="" class="bg-deepPine">Select one</option>
+              <option class="bg-deepPine">Instagram</option>
+              <option class="bg-deepPine">Facebook</option>
+              <option class="bg-deepPine">Film festival</option>
+              <option class="bg-deepPine">Friend / colleague</option>
+              <option class="bg-deepPine">Industry referral</option>
+              <option class="bg-deepPine">Press / media</option>
+              <option class="bg-deepPine">Other</option>
+            </select>
+          </label>
+
+          <label class="block">
+            <span class="mb-1.5 block text-[10px] uppercase tracking-[.22em] text-bone/55">Anything you&rsquo;d like us to know?</span>
+            <textarea name="message" rows="3" maxlength="2000" placeholder="Optional"
+              class="w-full resize-y rounded-xl border border-bone/15 bg-black/30 px-4 py-3 text-base text-bone outline-none transition placeholder:text-bone/25 focus:border-sap/70 focus:bg-black/40"></textarea>
+          </label>
+
+          <!-- Honeypot: hidden from people, bots fill it in -->
+          <div class="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+            <label>Website <input name="website" type="text" tabindex="-1" autocomplete="off" /></label>
+          </div>
+
+          <p data-access-error class="hidden rounded-xl border border-rust/60 bg-rust/20 px-4 py-3 text-sm leading-6 text-bone/85" role="alert"></p>
+
+          <button
+            type="submit"
+            data-access-submit
+            class="mt-2 inline-flex h-12 w-full items-center justify-center rounded-full border border-sap/60 bg-sap/15 px-8 text-xs uppercase tracking-[.24em] text-bone transition hover:border-sap hover:bg-sap/25 disabled:cursor-wait disabled:opacity-60"
+          >Request Access</button>
+
+          <p class="text-center text-xs leading-5 text-bone/40">
+            Access is provided through a private, password-protected screener and may expire.
+          </p>
+        </form>
+      </div>
+
+      <div data-access-done-view class="relative hidden py-6 text-center" aria-live="polite">
+        <p class="mb-4 text-[10px] uppercase tracking-widestPlus text-sap">Private Screener</p>
+        <h2 class="font-display text-4xl font-medium leading-none text-bone md:text-5xl">Request received.</h2>
+        <p class="mx-auto mt-5 max-w-sm text-sm leading-6 text-bone/60">
+          Thanks for your interest in <span class="italic">Family Tradition</span>. If access is approved, you&rsquo;ll receive private screener information by email.
+        </p>
+        <button
+          type="button"
+          data-access-close
+          class="mt-8 inline-flex h-11 items-center justify-center rounded-full border border-bone/25 px-7 text-xs uppercase tracking-[.22em] text-bone/75 transition hover:border-bone/60 hover:bg-bone/10 hover:text-bone"
+        >Close</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Shared site behavior (also used by index.html) -->
   <script src="/assets/js/site.js"></script>
+  <script src="/assets/js/access-request.js"></script>
 
   <!-- Page-specific: reveal the Trailer nav/section/button only when enabled -->
   <script>
