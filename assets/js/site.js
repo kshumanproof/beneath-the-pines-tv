@@ -13,7 +13,7 @@
 */
 
 const trailerModal = document.getElementById('trailerModal');
-const trailerVideo = document.getElementById('trailerVideo');
+const trailerFrame = document.getElementById('trailerFrame');
 
 const mobileMenuButton = document.getElementById('mobileMenuButton');
 const mobileMenu = document.getElementById('mobileMenu');
@@ -40,8 +40,6 @@ const familyAudioSeekInputs = [
 ].filter(Boolean);
 
 let isMobileMenuOpen = false;
-let hlsInstance = null;
-let hlsLibPromise = null;
 
 function syncFamilyAudioState() {
   if (!familyAudio) return;
@@ -135,27 +133,6 @@ function handleToTopVisibility() {
   }
 }
 
-// Loads the hls.js library only the first time it's actually needed
-// (i.e. only on browsers without native HLS support, and only once a
-// trailer is actually opened) instead of fetching it on every page view.
-function ensureHlsLoaded() {
-  if (window.Hls) {
-    return Promise.resolve();
-  }
-
-  if (!hlsLibPromise) {
-    hlsLibPromise = new Promise((resolve, reject) => {
-      const script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/hls.js@latest';
-      script.onload = resolve;
-      script.onerror = reject;
-      document.head.appendChild(script);
-    });
-  }
-
-  return hlsLibPromise;
-}
-
 function openTrailerModal() {
   closeMobileMenu();
 
@@ -164,13 +141,7 @@ function openTrailerModal() {
     updateFamilyAudioUI();
   }
 
-  if (
-    typeof TRAILER_HLS_URL === 'undefined' ||
-    !TRAILER_HLS_URL ||
-    TRAILER_HLS_URL === 'YOUR_CLOUDFLARE_HLS_URL_HERE' ||
-    !trailerVideo ||
-    !trailerModal
-  ) {
+  if (typeof TRAILER_VIMEO_ID === 'undefined' || !TRAILER_VIMEO_ID || !trailerFrame || !trailerModal) {
     alert('Trailer coming soon.');
     return;
   }
@@ -180,32 +151,10 @@ function openTrailerModal() {
   document.body.style.overflow = 'hidden';
   handleToTopVisibility();
 
-  if (hlsInstance) {
-    hlsInstance.destroy();
-    hlsInstance = null;
-  }
-
-  if (trailerVideo.canPlayType('application/vnd.apple.mpegurl')) {
-    trailerVideo.src = TRAILER_HLS_URL;
-    return;
-  }
-
-  ensureHlsLoaded()
-    .then(function () {
-      if (!window.Hls || !Hls.isSupported()) {
-        alert('This browser does not support the trailer playback format.');
-        closeTrailerModal();
-        return;
-      }
-
-      hlsInstance = new Hls();
-      hlsInstance.loadSource(TRAILER_HLS_URL);
-      hlsInstance.attachMedia(trailerVideo);
-    })
-    .catch(function () {
-      alert('This browser does not support the trailer playback format.');
-      closeTrailerModal();
-    });
+  // Set the source on open so the Vimeo player isn't loaded on every page view,
+  // and so closing the modal actually stops playback.
+  trailerFrame.src = 'https://player.vimeo.com/video/' + TRAILER_VIMEO_ID +
+    '?autoplay=1&title=0&byline=0&portrait=0&dnt=1';
 }
 
 function closeTrailerModal() {
@@ -214,15 +163,8 @@ function closeTrailerModal() {
   trailerModal.classList.add('hidden');
   trailerModal.classList.remove('flex');
 
-  if (trailerVideo) {
-    trailerVideo.pause();
-    trailerVideo.removeAttribute('src');
-    trailerVideo.load();
-  }
-
-  if (hlsInstance) {
-    hlsInstance.destroy();
-    hlsInstance = null;
+  if (trailerFrame) {
+    trailerFrame.removeAttribute('src');
   }
 
   if (!isMobileMenuOpen) {

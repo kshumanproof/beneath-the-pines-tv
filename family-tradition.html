@@ -196,9 +196,9 @@
 <body class="grain font-body antialiased selection:bg-sap selection:text-deepPine">
 
   <script>
-  const SHOW_TRAILER = false;
+  const SHOW_TRAILER = true;
 
-  const TRAILER_HLS_URL = 'https://customer-trmz4skdk8nsb5f7.cloudflarestream.com/fb3e37e4bd61bc95a165a0410818ebe4/manifest/video.m3u8';
+  const TRAILER_VIMEO_ID = '1238486048';
 </script>
 
   <main class="relative min-h-screen overflow-hidden bg-deepPine">
@@ -677,7 +677,7 @@
   <div
   id="trailerModal"
   data-trailer-modal
-    class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/88 px-4 py-6 backdrop-blur-sm sm:px-6"
+    class="fixed inset-0 z-[150] hidden items-center justify-center bg-black/88 px-4 py-6 backdrop-blur-sm sm:px-6"
     role="dialog"
     aria-modal="true"
     aria-label="Family Tradition trailer"
@@ -694,16 +694,14 @@
 
       <div class="overflow-hidden border border-bone/15 bg-black shadow-2xl">
         <div class="aspect-video w-full bg-black">
-          <video
-            id="trailerVideo"
+          <iframe
+            id="trailerFrame"
             class="h-full w-full"
-            controls
-            playsinline
-            preload="metadata"
-            poster="/assets/images/family-tradition-poster.jpg"
-          >
-            Your browser does not support the video tag.
-          </video>
+            title="Family Tradition trailer"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
 
