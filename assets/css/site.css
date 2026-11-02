@@ -301,7 +301,7 @@ body {
 @media (min-width: 1200px) {
   .family-header-player {
     justify-content: flex-start;
-    width: clamp(210px, 22vw, 300px);
+    width: clamp(190px, 18vw, 260px);
   }
 
   .family-header-track {
@@ -312,7 +312,7 @@ body {
 /* Large desktop: add scrub control */
 @media (min-width: 1400px) {
   .family-header-player {
-    width: clamp(315px, 26vw, 420px);
+    width: clamp(240px, 18vw, 290px);
   }
 
   .family-header-seek {
