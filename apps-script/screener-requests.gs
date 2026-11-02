@@ -9,7 +9,7 @@
  * Setup: see apps-script/README.md
  */
 
-var NOTIFY_EMAIL = 'kris@badbellafilms.com';
+var NOTIFY_EMAIL = 'kris@krisshuman.com';
 var SHEET_NAME = 'Requests';
 var ID_PREFIX = 'FT-';
 var TIMEZONE = 'America/New_York';
@@ -95,39 +95,25 @@ function doGet() {
   return json({ ok: true, service: 'family-tradition-screener-requests' });
 }
 
+/**
+ * Deliberately minimal. Everything the visitor typed stays in the Sheet, so this
+ * email carries no links, no reply-to and no visitor-supplied text — an earlier
+ * version with all three was blocked by Google's outbound spam filter.
+ */
 function sendNotification(id, submitted, r) {
-  var dash = function (v) { return v || '—'; };
-  var lines = [
-    'NEW FAMILY TRADITION SCREENER REQUEST',
-    '',
-    'Request ID: ' + id,
-    'Name: ' + r.name,
-    'Email: ' + r.email,
-    'Company / Organization: ' + dash(r.company),
-    'Role / Title: ' + dash(r.role),
-    'How they heard about the film: ' + dash(r.heard_about),
-    'Message: ' + dash(r.message),
-    '',
-    'ATTRIBUTION',
-    'Submitted: ' + submitted,
-    'Landing page: ' + dash(r.landing_page),
-    'Submission page: ' + dash(r.submission_page),
-    'Referrer: ' + (r.referrer || '— (direct, or not shared by the browser)')
-  ];
-  // Only list UTM tags that actually came in.
-  [['UTM Source', r.utm_source], ['UTM Medium', r.utm_medium],
-   ['UTM Campaign', r.utm_campaign], ['UTM Content', r.utm_content]].forEach(function (p) {
-    if (p[1]) lines.push(p[0] + ': ' + p[1]);
-  });
-  lines.push('', 'Suggested Vimeo review link name: ' + id + ' ' + r.name);
-  lines.push('Log: ' + SpreadsheetApp.getActiveSpreadsheet().getUrl());
+  var safeName = String(r.name).replace(/[^A-Za-z0-9 .'-]/g, '').trim().slice(0, 60) || 'No name given';
 
   MailApp.sendEmail({
     to: NOTIFY_EMAIL,
-    replyTo: r.email,
     name: 'Family Tradition Screener Requests',
-    subject: 'FAMILY TRADITION - Screener Request - ' + id + ' - ' + r.name,
-    body: lines.join('\n')
+    subject: 'FAMILY TRADITION - Screener Request - ' + id + ' - ' + safeName,
+    body: [
+      'New screener request: ' + id,
+      'Name: ' + safeName,
+      'Submitted: ' + submitted,
+      '',
+      'Open the Requests tab for the full details and attribution.'
+    ].join('\n')
   });
 }
 
